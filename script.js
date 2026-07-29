@@ -10,7 +10,7 @@
   // -------------------------------------------------------------
   // Config
   // -------------------------------------------------------------
-  const API_ENDPOINT = 'http://127.0.0.1:8000/predict';
+  const API_ENDPOINT = 'https://mansik-santulan-score-jgvr.onrender.com';
   const HIGH_SCORE_THRESHOLD = 7.5; // confetti fires at/above this score
 
   // -------------------------------------------------------------
