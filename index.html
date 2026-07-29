@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindScope — Mental Health Prediction</title>
+  <meta name="description" content="AI-powered mental health score prediction based on social media usage, lifestyle and academic patterns." />
+
+  <!-- Fonts: Sora for display / headline personality, Inter for body & data legibility -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================= -->
+  <!-- Ambient background layer      -->
+  <!-- ============================= -->
+  <div class="bg-scene" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div class="blob blob--one"></div>
+    <div class="blob blob--two"></div>
+    <div class="blob blob--three"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- Top navigation                -->
+  <!-- ============================= -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand">
+        <span class="nav__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C7 2 3 5.5 3 10c0 2.9 1.6 5.4 4 6.8V21l3.2-1.8c.6.1 1.2.1 1.8.1 5 0 9-3.5 9-8s-4-9-9-9Z" stroke="url(#navGrad)" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="8.5" cy="10.5" r="1.15" fill="url(#navGrad)"/>
+            <circle cx="12" cy="10.5" r="1.15" fill="url(#navGrad)"/>
+            <circle cx="15.5" cy="10.5" r="1.15" fill="url(#navGrad)"/>
+            <defs>
+              <linearGradient id="navGrad" x1="3" y1="2" x2="21" y2="21">
+                <stop stop-color="#8b7bff"/>
+                <stop offset="1" stop-color="#33e6c9"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        MindScope
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#how-it-works">How it works</a>
+        <a href="#predict-form">Assessment</a>
+        <a href="#result" class="nav__links-result">Result</a>
+      </nav>
+      <a href="#predict-form" class="btn btn--ghost btn--small">Start assessment</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================= -->
+    <!-- HERO SECTION                  -->
+    <!-- ============================= -->
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Predictive wellbeing model · v2.1</p>
+
+        <h1 class="hero__title">
+          Know your <span class="hero__title-gradient">mental health score</span>
+          before it knows you.
+        </h1>
+
+        <p class="hero__subtitle">
+          MindScope reads the quiet signals in your day — screen time, sleep, study load,
+          movement and stress — and turns them into a single, explainable score using a model
+          trained on real student behaviour data.
+        </p>
+
+        <div class="hero__cta-row">
+          <a href="#predict-form" class="btn btn--primary">
+            Get my score
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#how-it-works" class="btn btn--ghost">See how it works</a>
+        </div>
+
+        <dl class="hero__stats">
+          <div class="hero__stat">
+            <dt>Signals analysed</dt>
+            <dd>12</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Countries in training data</dt>
+            <dd>10+</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Avg. response time</dt>
+            <dd>&lt; 1s</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Floating glass preview card, purely decorative on desktop -->
+      <div class="hero__preview" aria-hidden="true">
+        <div class="preview-card glass">
+          <div class="preview-card__ring">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" class="ring-track" />
+              <circle cx="60" cy="60" r="52" class="ring-progress ring-progress--demo" />
+            </svg>
+            <div class="preview-card__ring-label">
+              <span class="preview-card__ring-value">7.8</span>
+              <span class="preview-card__ring-unit">/ 10</span>
+            </div>
+          </div>
+          <p class="preview-card__caption">Sample prediction</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- HOW IT WORKS                  -->
+    <!-- ============================= -->
+    <section class="how" id="how-it-works">
+      <div class="how__inner">
+        <span class="section-kicker">Under the hood</span>
+        <h2 class="section-title">Three inputs. One score.</h2>
+        <div class="how__grid">
+          <article class="how-card glass">
+            <span class="how-card__icon" aria-hidden="true">＋</span>
+            <h3>Digital habits</h3>
+            <p>Daily usage hours, unlocks and the platform you spend the most time on.</p>
+          </article>
+          <article class="how-card glass">
+            <span class="how-card__icon" aria-hidden="true">＋</span>
+            <h3>Lifestyle balance</h3>
+            <p>Sleep, physical activity and study hours that shape your baseline energy.</p>
+          </article>
+          <article class="how-card glass">
+            <span class="how-card__icon" aria-hidden="true">＋</span>
+            <h3>Context &amp; stress</h3>
+            <p>Academic level, country and self-reported stress bring in the human context.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- PREDICTION FORM SECTION       -->
+    <!-- ============================= -->
+    <section class="predict" id="predict-form">
+      <div class="predict__inner">
+        <div class="predict__intro">
+          <span class="section-kicker">Assessment</span>
+          <h2 class="section-title">Tell us about your day</h2>
+          <p class="section-subtitle">
+            Answer honestly — there are no right answers, only signal. Takes about a minute.
+          </p>
+        </div>
+
+        <form id="predict-form-el" class="predict-card glass" novalidate>
+
+          <!-- Row: Age / Gender -->
+          <div class="field-grid">
+            <div class="field">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="Age" min="10" max="100" placeholder="e.g. 21" autocomplete="off" />
+              <span class="field__error" id="err-age"></span>
+            </div>
+
+            <div class="field">
+              <label for="gender">Gender</label>
+              <div class="select-wrap">
+                <select id="gender" name="Gender">
+                  <option value="" disabled selected hidden>Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <span class="field__error" id="err-gender"></span>
+            </div>
+          </div>
+
+          <!-- Row: Country / Academic Level -->
+          <div class="field-grid">
+            <div class="field">
+              <label for="country">Country</label>
+              <div class="select-wrap">
+                <select id="country" name="country">
+                  <option value="" disabled selected hidden>Select country</option>
+                  <option value="India">India</option>
+                  <option value="USA">USA</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="UK">UK</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="France">France</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <span class="field__error" id="err-country"></span>
+            </div>
+
+            <div class="field">
+              <label for="academic-level">Academic level</label>
+              <div class="select-wrap">
+                <select id="academic-level" name="Academic_Level">
+                  <option value="" disabled selected hidden>Select level</option>
+                  <option value="Undergraduate">Undergraduate</option>
+                  <option value="Graduate">Graduate</option>
+                  <option value="High School">High School</option>
+                </select>
+              </div>
+              <span class="field__error" id="err-academic-level"></span>
+            </div>
+          </div>
+
+          <!-- Row: Platform / Purpose -->
+          <div class="field-grid">
+            <div class="field">
+              <label for="platform">Most used platform</label>
+              <div class="select-wrap">
+                <select id="platform" name="Most_Used_Platform">
+                  <option value="" disabled selected hidden>Select platform</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Snapchat">Snapchat</option>
+                  <option value="Twitter">Twitter</option>
+                  <option value="YouTube">YouTube</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="LINE">LINE</option>
+                  <option value="KakaoTalk">KakaoTalk</option>
+                  <option value="VKontakte">VKontakte</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="WeChat">WeChat</option>
+                </select>
+              </div>
+              <span class="field__error" id="err-platform"></span>
+            </div>
+
+            <div class="field">
+              <label for="purpose">Purpose of use</label>
+              <div class="select-wrap">
+                <select id="purpose" name="Purpose_Of_Use">
+                  <option value="" disabled selected hidden>Select purpose</option>
+                  <option value="Networking">Networking</option>
+                  <option value="Education">Education</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="News">News</option>
+                </select>
+              </div>
+              <span class="field__error" id="err-purpose"></span>
+            </div>
+          </div>
+
+          <!-- Row: Usage hours / Unlocks -->
+          <div class="field-grid">
+            <div class="field">
+              <label for="usage-hours">Avg. daily usage (hours)</label>
+              <input type="number" id="usage-hours" name="Avg_Daily_Usage_Hours" min="0" max="24" step="0.1" placeholder="e.g. 4.5" autocomplete="off" />
+              <span class="field__error" id="err-usage-hours"></span>
+            </div>
+
+            <div class="field">
+              <label for="unlocks">Daily phone unlocks</label>
+              <input type="number" id="unlocks" name="Daily_Unlocks" min="0" max="300" placeholder="e.g. 60" autocomplete="off" />
+              <span class="field__error" id="err-unlocks"></span>
+            </div>
+          </div>
+
+          <!-- Row: Physical activity / Sleep -->
+          <div class="field-grid">
+            <div class="field">
+              <label for="activity-hours">Physical activity (hours/day)</label>
+              <input type="number" id="activity-hours" name="Physical_Activity_Hours" min="0" max="24" step="0.1" placeholder="e.g. 1" autocomplete="off" />
+              <span class="field__error" id="err-activity-hours"></span>
+            </div>
+
+            <div class="field">
+              <label for="sleep-hours">Sleep per night (hours)</label>
+              <input type="number" id="sleep-hours" name="Sleep_Hours_Per_Night" min="0" max="24" step="0.1" placeholder="e.g. 7" autocomplete="off" />
+              <span class="field__error" id="err-sleep-hours"></span>
+            </div>
+          </div>
+
+          <!-- Row: Study hours / Stress level -->
+          <div class="field-grid">
+            <div class="field">
+              <label for="study-hours">Study hours (per day)</label>
+              <input type="number" id="study-hours" name="Study_Hours" min="0" max="24" step="0.1" placeholder="e.g. 3" autocomplete="off" />
+              <span class="field__error" id="err-study-hours"></span>
+            </div>
+
+            <div class="field">
+              <label for="stress-level">Stress level</label>
+              <div class="select-wrap">
+                <select id="stress-level" name="Stress_Level">
+                  <option value="" disabled selected hidden>Select stress level</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                  <option value="Very High">Very High</option>
+                </select>
+              </div>
+              <span class="field__error" id="err-stress-level"></span>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="predict-card__footer">
+            <p class="predict-card__disclaimer">
+              This is a statistical estimate, not a clinical diagnosis.
+            </p>
+            <button type="submit" class="btn btn--primary btn--full" id="predict-btn">
+              <span class="btn__label">Predict my score</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- RESULT SECTION                -->
+    <!-- ============================= -->
+    <section class="result" id="result">
+      <div class="result__inner">
+        <div class="result-card glass" id="result-card" hidden>
+          <span class="section-kicker">Your result</span>
+          <h2 class="section-title">Mental health score</h2>
+
+          <div class="result-card__body">
+            <div class="score-ring">
+              <svg width="220" height="220" viewBox="0 0 220 220" class="score-ring__svg">
+                <defs>
+                  <linearGradient id="scoreGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#8b7bff" />
+                    <stop offset="55%" stop-color="#5ec8ff" />
+                    <stop offset="100%" stop-color="#33e6c9" />
+                  </linearGradient>
+                </defs>
+                <circle cx="110" cy="110" r="96" class="score-ring__track" />
+                <circle cx="110" cy="110" r="96" class="score-ring__progress" id="score-ring-progress" />
+              </svg>
+              <div class="score-ring__center">
+                <span class="score-ring__number" id="score-number">0</span>
+                <span class="score-ring__max">/ 10</span>
+              </div>
+            </div>
+
+            <div class="result-details">
+              <p class="result-details__label" id="score-label">—</p>
+              <p class="result-details__desc" id="score-description">
+                Fill in the assessment above to see your personalised score and what it means.
+              </p>
+              <button class="btn btn--ghost btn--small" id="retake-btn" type="button">Retake assessment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Confetti canvas for high-score celebration -->
+      <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© 2026 MindScope. For informational purposes only — not a medical device.</span>
+      <span class="footer__badge">Built with a calm, private-by-default model.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
